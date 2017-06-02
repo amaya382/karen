@@ -3,7 +3,7 @@ KAREN_PATH := 'out/'${KAREN}
 
 all: prepare_src_font prepare_powerline_fontpatcher clean
 	./create_karen.pe
-	fontforge -lang=py -script overwrite_unicoderanges.py ${KAREN_PATH}
+	fontforge -lang=py -script overwrite_os2.py ${KAREN_PATH}
 	fontforge -lang=py -script fontpatcher/scripts/powerline-fontpatcher \
 		--no-rename ${KAREN_PATH}
 	mv ${KAREN} ${KAREN_PATH}
