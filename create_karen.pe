@@ -1,0 +1,91 @@
+#!/usr/bin/fontforge -script
+
+ubuntu_mono = "UbuntuMono-R.ttf"
+genshin_gothic_mono = "GenShinGothic-Monospace-Regular.ttf"
+noto_emoji = "NotoEmoji-Regular.ttf"
+
+src = "src/"
+src_ubuntu_mono = src + ubuntu_mono
+src_genshin_gothic_mono = src + genshin_gothic_mono
+src_noto_emoji = src + noto_emoji
+
+tmp = "tmp/"
+tmp_ubuntu_mono = tmp + ubuntu_mono
+tmp_genshin_gothic_mono = tmp + genshin_gothic_mono
+tmp_noto_emoji = tmp + noto_emoji
+
+out = "out/"
+karen_family = "Karen"
+weight = "Regular"
+karen_font = karen_family + "-" + weight
+karen = karen_font + ".ttf"
+out_karen = out + karen
+version = "0.1"
+
+copyright = "Karen is based on the following products\n"
+Open(src_ubuntu_mono)
+copyright += $fontname
+copyright += "\n"
+copyright += $copyright
+copyright += "\n"
+Close()
+Open(src_genshin_gothic_mono)
+copyright += $fontname
+copyright += "\n"
+copyright += $copyright
+copyright += "\n"
+Close()
+Open(src_noto_emoji)
+copyright += $fontname
+copyright += "\n"
+copyright += $copyright
+Close()
+
+Open(src_ubuntu_mono)
+ScaleToEm(1024)
+Generate(tmp_ubuntu_mono)
+Close()
+
+Open(src_genshin_gothic_mono)
+SelectWorthOutputting()
+Scale(93)
+SetWidth(1024)
+Generate(tmp_genshin_gothic_mono)
+Close()
+
+Open(src_noto_emoji)
+SelectWorthOutputting()
+ScaleToEm(1024)
+Scale(79, 0, 0)
+SetWidth(1024)
+Generate(tmp_noto_emoji)
+Close()
+
+Open(tmp_ubuntu_mono)
+MergeFonts(tmp_genshin_gothic_mono)
+MergeFonts(tmp_noto_emoji)
+SetFontNames(karen_font, karen_family, karen_family, weight, copyright, version)
+SetTTFName(0x409, 1, karen_family)
+SetTTFName(0x409, 2, weight)
+SetTTFName(0x409, 3, karen_font + " " + version)
+SetTTFName(0x409, 4, karen_font)
+SetTTFName(0x409, 5, version)
+SetTTFName(0x409, 7, "")
+SetTTFName(0x409, 8, "")
+SetTTFName(0x409, 9, "")
+SetTTFName(0x409, 11, "")
+SetTTFName(0x409, 12, "")
+SetTTFName(0x409, 16, karen_family)
+SetTTFName(0x409, 17, weight)
+SetTTFName(0x409, 18, "")
+SetTTFName(0x411, 1, karen_family)
+SetTTFName(0x411, 2, weight)
+SetTTFName(0x411, 4, karen_font)
+SetTTFName(0x411, 5, version)
+SetTTFName(0x411, 16, karen_family)
+SetTTFName(0x411, 17, weight)
+SetOS2Value("VendorID", "")
+SetOS2Value("IBMFamily", 2057)
+Select(0u00a6); Copy(); Select(0u007c); Paste() // |
+Generate(out_karen, "", 0x84)
+Close()
