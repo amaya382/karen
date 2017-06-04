@@ -1,5 +1,5 @@
-# Karen
-A *可憐 (Karen)* (=lovely) font for console
+# Karen (可憐)
+A lovely font for console
 
 :white_check_mark: Easy-to-read monospace font  
 :white_check_mark: Emoji Support  
