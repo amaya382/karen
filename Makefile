@@ -1,16 +1,17 @@
 KAREN := 'Karen-Regular.ttf'
 KAREN_PATH := 'out/'${KAREN}
 
+.PHONY: all
 all: prepare_src_font prepare_powerline_fontpatcher clean
-	./create_karen.pe
-	fontforge -lang=py -script overwrite_os2.py ${KAREN_PATH}
+	fontforge -lang=py -script create_karen.py
 	fontforge -lang=py -script fontpatcher/scripts/powerline-fontpatcher \
 		--no-rename ${KAREN_PATH}
 	mv ${KAREN} ${KAREN_PATH}
+	fontforge -lang=py -script fix_powerline.py
 
 .PHONY: prepare_dirs
 prepare_dirs:
-	mkdir -p src tmp out
+	mkdir -p src out
 
 .PHONY: prepare_src_font
 prepare_src_font: prepare_dirs
@@ -37,8 +38,8 @@ prepare_powerline_fontpatcher:
 
 .PHONY: clean
 clean:
-	rm -rf tmp/* out/*
+	rm -rf out/*
 
 .PHONY: clean-all
 clean-all:
-	rm -rf src tmp out
+	rm -rf src out

@@ -3,8 +3,8 @@ A *可憐 (Karen)* (=lovely) font for console
 
 :white_check_mark: Easy-to-read monospace font  
 :white_check_mark: Emoji Support  
-:white_check_mark: Powerline is ready  
-:white_check_mark: JP Support
+:white_check_mark: JP Support  
+:white_check_mark: Powerline is ready
 
 ```
 * Karen
@@ -34,7 +34,7 @@ This project has only a script to generate *Karen* for license reasons.
 ## Notice
 Generated font is double-licensed, [Ubuntu Font Licence](http://font.ubuntu.com/licence/) and [SIL Open Font License 1.1](https://en.wikipedia.org/wiki/SIL_Open_Font_License). Never Redistribute it.
 
-Fork this *script* are welcome :)
+Forking this *script* are welcome :)
 
 
 ## Acknowledgement
