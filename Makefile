@@ -4,9 +4,7 @@ KAREN_PATH := 'out/'${KAREN}
 .PHONY: all
 all: prepare_src_font prepare_powerline_fontpatcher clean
 	fontforge -lang=py -script create_karen.py
-	fontforge -lang=py -script fontpatcher/scripts/powerline-fontpatcher \
-		--no-rename ${KAREN_PATH}
-	mv ${KAREN} ${KAREN_PATH}
+	cd ../fontmerger && bin/fontmerger -v --all -o ../karen/out/ ../karen/out/Karen-Regular.ttf
 	fontforge -lang=py -script fix_powerline.py
 
 .PHONY: prepare_dirs

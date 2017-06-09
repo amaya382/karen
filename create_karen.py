@@ -30,6 +30,8 @@ ne = ff.open(SRC_NE_FILE)
 EM = 1024
 ASCENT = round(um.ascent * (EM / um.em))
 DESCENT = round(um.descent * (EM / um.em))
+TYPO_ASCENT = round(ASCENT * 0.9)
+TYPO_DESCENT = -round(DESCENT * 0.75)
 FULL_WIDTH = 1024
 HALF_WIDTH = FULL_WIDTH / 2
 GGM_SCALE = 0.93
@@ -80,8 +82,14 @@ ggm.ascent = ASCENT
 ggm.descent = DESCENT
 ggm.os2_winascent = ASCENT
 ggm.os2_windescent = DESCENT
-#ggm.os2_typoascent = ???
-#ggm.os2_typodescent = ???
+ggm.os2_typoascent = TYPO_ASCENT
+ggm.os2_typodescent = TYPO_DESCENT
+ggm.os2_typolinegap = 0
+ggm.hhea_ascent = ASCENT
+ggm.hhea_descent = -DESCENT
+ggm.hhea_linegap = 0
+ggm.vhea_linegap = 0
+ggm.upos = 45
 
 ## Copyright
 def generate_copyright(font):
