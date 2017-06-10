@@ -1,16 +1,21 @@
 # Karen (可憐)
 A lovely font for console
 
-:white_check_mark: Easy-to-read monospace font  
-:white_check_mark: Emoji Support  
+:white_check_mark: Easy-to-read Monospace Font  
+:white_check_mark: Many Emojis Support  
 :white_check_mark: JP Support  
 :white_check_mark: Powerline is ready
 
 ```
 * Karen
 |\
-| - Powerline patch
-|\
+| - fontmerger - Powerline / Powerline-extra
+|              ﾄ Seti UI
+|              ﾄ Devicon
+|              ﾄ Pomicons
+|              ﾄ Font Awesome / Font Awesome Extension
+|              ﾄ Font Linux
+|\             - Github Octicons
 | - Noto Emoji
 |\
 | - GenShin Gothic
@@ -41,3 +46,4 @@ Forking this *script* are welcome :)
 * [Ubuntu Mono](http://font.ubuntu.com/)
 * [GenShin Gothic](http://jikasei.me/font/genshin/)
 * [Noto Emoji](https://github.com/googlei18n/noto-emoji)
+* [fontmerger](https://github.com/iij/fontmerger)
