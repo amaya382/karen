@@ -15,10 +15,11 @@ prepare_dirs:
 .PHONY: prepare_src_font
 prepare_src_font: prepare_dirs
 	[ -f src/UbuntuMono-R.ttf ] || ( \
-		wget http://font.ubuntu.com/download/ubuntu-font-family-0.83.zip && \
-		unzip -od src ubuntu-font-family-0.83.zip ubuntu-font-family-0.83/UbuntuMono-R.ttf && \
-		mv src/ubuntu-font-family-0.83/UbuntuMono-R.ttf src && \
-		rm -r ubuntu-font-family-0.83.zip src/ubuntu-font-family-0.83 \
+		wget https://assets.ubuntu.com/v1/fad7939b-ubuntu-font-family-0.83.zip \
+			-O ubuntu-mono.zip && \
+		unzip -od src ubuntu-mono.zip && \
+		mv src/ubuntu-font-family-*/UbuntuMono-R.ttf src && \
+		rm -r ubuntu-mono.zip src/ubuntu-font-family-* \
 	)
 	[ -f src/GenShinGothic-Monospace-Regular.ttf ] || ( \
 		wget https://osdn.jp/downloads/users/8/8637/genshingothic-20150607.zip && \
