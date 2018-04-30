@@ -69,7 +69,7 @@ for glyph in ne.glyphs():
 # Customize several glyphs
 ## No-break space
 ggm.selection.select(0xa0)
-list(ggm.selection.byGlyphs)[0].width = 0
+list(ggm.selection.byGlyphs)[0].width = HALF_WIDTH
 
 ## Half-width space
 ggm.selection.select(0x20)
