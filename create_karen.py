@@ -16,18 +16,21 @@ KAREN_FAMILYNAME_JA = "可憐"
 KAREN_FONTNAME = KAREN_FAMILYNAME + "-" + KAREN_WEIGHT
 KAREN_FONTNAME_JA = KAREN_FAMILYNAME_JA + "-" + KAREN_WEIGHT
 
-UM_FILE = "UbuntuMono-R.ttf"
 GGM_FILE = "GenShinGothic-Monospace-Regular.ttf"
+UM_FILE = "UbuntuMono-R.ttf"
+HK_FILE = "Hack-Regular.ttf"
 NE_FILE = "NotoEmoji-Regular.ttf"
 KAREN_FILE = KAREN_FONTNAME + ".ttf"
 
-SRC_UM_FILE = path.join(SRC, UM_FILE)
 SRC_GGM_FILE = path.join(SRC, GGM_FILE)
+SRC_UM_FILE = path.join(SRC, UM_FILE)
+SRC_HK_FILE = path.join(SRC, HK_FILE)
 SRC_NE_FILE = path.join(SRC, NE_FILE)
 OUT_KAREN_FILE = path.join(OUT, KAREN_FILE)
 
-um = ff.open(SRC_UM_FILE)
 ggm = ff.open(SRC_GGM_FILE)
+um = ff.open(SRC_UM_FILE)
+hk = ff.open(SRC_HK_FILE)
 ne = ff.open(SRC_NE_FILE)
 
 EM = 1024
@@ -37,9 +40,9 @@ TYPO_ASCENT = round(ASCENT * 0.9)
 TYPO_DESCENT = -round(DESCENT * 0.75)
 FULL_WIDTH = 1024
 HALF_WIDTH = FULL_WIDTH / 2
-GGM_SCALE = 0.93
+HK_SCALE = 0.83
 NE_SCALE = 0.79
-GGM_SCALE_MAT = psMat.scale(GGM_SCALE)
+HK_SCALE_MAT = psMat.scale(HK_SCALE)
 NE_SCALE_MAT = psMat.scale(NE_SCALE)
 
 
@@ -52,12 +55,23 @@ for glyph in um.glyphs():
         ggm.selection.select(glyph.unicode)
         ggm.paste()
 
+# Merge Hack
+hk.em = EM
+for glyph in hk.glyphs():
+    if glyph.isWorthOutputting() and 0xa1 <= glyph.unicode and \
+            len(list(ggm.selection.select(glyph.unicode).byGlyphs)) > 0 and \
+            list(ggm.selection.byGlyphs)[0].width == FULL_WIDTH:
+        glyph.transform(HK_SCALE_MAT)
+        glyph.width = HALF_WIDTH
+        hk.selection.select(glyph.unicode)
+        hk.copy()
+        ggm.selection.select(glyph.unicode)
+        ggm.paste()
 
 # Merge Noto Emoji
 ne.em = EM
-excludes = [0x23, 0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39] # '#' and '0-9'
 for glyph in ne.glyphs():
-    if glyph.isWorthOutputting() and glyph.unicode > 0 and glyph.unicode not in excludes:
+    if glyph.isWorthOutputting() and 0x80 <= glyph.unicode:
         glyph.transform(NE_SCALE_MAT)
         glyph.width = FULL_WIDTH
         ne.selection.select(glyph.encoding)
@@ -76,7 +90,7 @@ ggm.selection.select(0x20)
 list(ggm.selection.byGlyphs)[0].width = HALF_WIDTH
 
 ## |
-ggm.selection.select(0xa6); ggm.copy()
+um.selection.select(0xa6); um.copy()
 ggm.selection.select(0x7c); ggm.paste()
 
 
@@ -102,8 +116,9 @@ def generate_copyright(font):
     s += font.copyright
     return s
 karen_copyright = "Karen is based on the following products:"
-karen_copyright += generate_copyright(um)
 karen_copyright += generate_copyright(ggm)
+karen_copyright += generate_copyright(um)
+karen_copyright += generate_copyright(hk)
 karen_copyright += generate_copyright(ne)
 ggm.copyright = karen_copyright
 ggm.sfnt_names = \

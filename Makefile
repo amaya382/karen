@@ -14,6 +14,11 @@ prepare_dirs:
 
 .PHONY: prepare_src_font
 prepare_src_font: prepare_dirs
+	[ -f src/GenShinGothic-Monospace-Regular.ttf ] || ( \
+		wget https://osdn.jp/downloads/users/8/8637/genshingothic-20150607.zip && \
+		unzip -od src genshingothic-20150607.zip GenShinGothic-Monospace-Regular.ttf && \
+		rm genshingothic-20150607.zip \
+	)
 	[ -f src/UbuntuMono-R.ttf ] || ( \
 		wget https://assets.ubuntu.com/v1/fad7939b-ubuntu-font-family-0.83.zip \
 			-O ubuntu-mono.zip && \
@@ -21,10 +26,12 @@ prepare_src_font: prepare_dirs
 		mv src/ubuntu-font-family-*/UbuntuMono-R.ttf src && \
 		rm -r ubuntu-mono.zip src/ubuntu-font-family-* \
 	)
-	[ -f src/GenShinGothic-Monospace-Regular.ttf ] || ( \
-		wget https://osdn.jp/downloads/users/8/8637/genshingothic-20150607.zip && \
-		unzip -od src genshingothic-20150607.zip GenShinGothic-Monospace-Regular.ttf && \
-		rm genshingothic-20150607.zip \
+	[ -f src/Hack-Regular.ttf ] || ( \
+		wget https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.zip \
+			-O Hack.zip && \
+		unzip -od src Hack.zip && \
+		mv src/ttf/Hack-Regular.ttf src && \
+		rm -r Hack.zip src/ttf \
 	)
 	[ -f src/NotoEmoji-Regular.ttf ] || ( \
 		wget https://github.com/googlei18n/noto-emoji/raw/master/fonts/NotoEmoji-Regular.ttf \
