@@ -1,10 +1,11 @@
 # Karen (可憐)
-A lovely font for console
+A lovely font for programming
 
-:white_check_mark: Easy-to-read Monospace Font  
-:white_check_mark: Many Emojis Support  
-:white_check_mark: JP Support  
-:white_check_mark: Powerline is ready
+:white\_check\_mark: Easy-to-read Monospace Font  
+:white\_check\_mark: Many Emojis Support  
+:white\_check\_mark: JP Support  
+:white\_check\_mark: Easy-to-use EAW symbols  
+:white\_check\_mark: Powerline is ready
 
 ```
 * Karen
@@ -18,17 +19,19 @@ A lovely font for console
 |\             - Github Octicons
 | - Noto Emoji
 |\
-| - GenShin Gothic
-| |\
-| | - M+ OUTLINE FONTS
-| |
-| - Source Han Code
+| - Hack
+|\
+| - Ubuntu Mono
 |
-- Ubuntu Mono
+- GenShin Gothic
+|\
+| - M+ OUTLINE FONTS
+|
+- Source Han Code
 ```
 
 ## How to use
-This project has only a script to generate *Karen* for license reasons.
+This project has only a script which generates *Karen* for license reasons.
 
 1. Clone this repository
 2. Prepare toolkits, `make`, `wget`, `unzip`, `python` and `fontforge`
@@ -37,13 +40,13 @@ This project has only a script to generate *Karen* for license reasons.
 
 
 ## Notice
-Generated font is double-licensed, [Ubuntu Font Licence](http://font.ubuntu.com/licence/) and [SIL Open Font License 1.1](https://en.wikipedia.org/wiki/SIL_Open_Font_License). Never Redistribute it.
-
-Forking this *script* are welcome :)
+Generated font is double-licensed, [Ubuntu Font Licence](http://font.ubuntu.com/licence/) and [SIL Open Font License 1.1](https://en.wikipedia.org/wiki/SIL_Open_Font_License).
 
 
 ## Acknowledgement
-* [Ubuntu Mono](http://font.ubuntu.com/)
 * [GenShin Gothic](http://jikasei.me/font/genshin/)
+* [Ubuntu Mono](http://font.ubuntu.com/)
+* [Hack](https://sourcefoundry.org/hack/)
 * [Noto Emoji](https://github.com/googlei18n/noto-emoji)
 * [fontmerger](https://github.com/iij/fontmerger)
+
