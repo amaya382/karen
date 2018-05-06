@@ -71,7 +71,7 @@ for glyph in hk.glyphs():
 # Merge Noto Emoji
 ne.em = EM
 for glyph in ne.glyphs():
-    if glyph.isWorthOutputting() and 0x80 <= glyph.unicode:
+    if glyph.isWorthOutputting() and 0x20e0 <= glyph.unicode:
         glyph.transform(NE_SCALE_MAT)
         glyph.width = FULL_WIDTH
         ne.selection.select(glyph.encoding)
