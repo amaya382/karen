@@ -14,10 +14,11 @@ prepare_dirs:
 
 .PHONY: prepare_src_font
 prepare_src_font: prepare_dirs
-	[ -f src/GenShinGothic-Monospace-Regular.ttf ] || ( \
-		wget https://osdn.jp/downloads/users/8/8637/genshingothic-20150607.zip && \
-		unzip -od src genshingothic-20150607.zip GenShinGothic-Monospace-Regular.ttf && \
-		rm genshingothic-20150607.zip \
+	[ -f src/GenEiGothicM-Regular.ttf ] || ( \
+		wget https://okoneya.jp/font/GenEiGothicM-1.1.zip && \
+		unzip -od src GenEiGothicM-1.1.zip && \
+		mv src/GenEiGothicM/GenEiGothicM-Regular.ttf src && \
+		rm -r GenEiGothicM-1.1.zip src/GenEiGothicM \
 	)
 	[ -f src/UbuntuMono-R.ttf ] || ( \
 		wget https://assets.ubuntu.com/v1/fad7939b-ubuntu-font-family-0.83.zip \
@@ -37,6 +38,7 @@ prepare_src_font: prepare_dirs
 		wget https://github.com/googlei18n/noto-emoji/raw/master/fonts/NotoEmoji-Regular.ttf \
 			-O src/NotoEmoji-Regular.ttf \
 	)
+
 
 .PHONY: prepare_powerline_fontpatcher
 prepare_powerline_fontpatcher:

@@ -2,9 +2,10 @@
 A lovely font for programming
 
 :white\_check\_mark: Easy-to-read Monospace Font  
+:white\_check\_mark: Gorgeous JP Support  
 :white\_check\_mark: Many Emojis Support  
-:white\_check\_mark: JP Support  
-:white\_check\_mark: Easy-to-use EAW symbols  
+:white\_check\_mark: Easy-to-use EAW Symbols,  
+  e.g., Half-width math symbols, Full-width emojis  
 :white\_check\_mark: Powerline is ready
 
 ```
@@ -23,7 +24,9 @@ A lovely font for programming
 |\
 | - Ubuntu Mono
 |
-- GenShin Gothic
+- GenEi Gothic M
+|
+- GenShin Gothic M
 |\
 | - M+ OUTLINE FONTS
 |
@@ -31,7 +34,8 @@ A lovely font for programming
 ```
 
 ## How to use
-This project has only a script which generates *Karen* for license reasons.
+This project has only a script which generates *Karen* for license reasons. You need to build yourself.
+
 
 1. Clone this repository
 2. Prepare toolkits, `make`, `wget`, `unzip`, `python` and `fontforge`
@@ -45,6 +49,7 @@ Generated font is double-licensed, [Ubuntu Font Licence](http://font.ubuntu.com/
 
 ## Acknowledgement
 * [GenShin Gothic](http://jikasei.me/font/genshin/)
+* [GenEi Gothic](https://okoneya.jp/font/genei-gothic.html)
 * [Ubuntu Mono](http://font.ubuntu.com/)
 * [Hack](https://sourcefoundry.org/hack/)
 * [Noto Emoji](https://github.com/googlei18n/noto-emoji)
