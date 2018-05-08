@@ -1,3 +1,4 @@
 [submodule "fontmerger"]
 	path = fontmerger
 	url = https://github.com/iij/fontmerger.git
+	ignore = dirty
